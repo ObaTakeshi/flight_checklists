@@ -296,11 +296,11 @@
 
 import os
 import sys
-from lib.chache_manage import ChacheManage
+from lib.cache_manage import CacheManage
 
 query = sys.argv[1]
 
-ChacheManage.flash()
+CacheManage.flash()
 
 sys.stdout.write(query)</string>
 				<key>scriptargtype</key>
@@ -529,11 +529,11 @@ vim</string>
 ###################
 
 import sys
-from lib.chache_manage import ChacheManage
+from lib.cache_manage import CacheManage
 
 query = sys.argv[1]
 
-ChacheManage.make_checklist(query)
+CacheManage.make_checklist(query)
 
 sys.stdout.write('')</string>
 				<key>scriptargtype</key>
@@ -658,19 +658,19 @@ sys.stdout.write('')</string>
 				<integer>68</integer>
 				<key>script</key>
 				<string>import sys
-from lib.chache_manage import ChacheManage
+from lib.cache_manage import CacheManage
 
 
 query = sys.argv[1]
 
-row_checklist = ChacheManage.read()
+row_checklist = CacheManage.read()
 
 remaining_task = filter(lambda x: x[0] == '*', row_checklist)
 
 if len(remaining_task) == 0:
 	sys.stdout.write('no progress work')
 else:
-	ChacheManage.write(row_checklist)
+	CacheManage.write(row_checklist)
 
 	sys.stdout.write('')</string>
 				<key>scriptargtype</key>
@@ -789,10 +789,10 @@ else:
 ############
 
 import sys
-from lib.chache_manage import ChacheManage
+from lib.cache_manage import CacheManage
 query = sys.argv[1]
 
-ChacheManage.flash()
+CacheManage.flash()
 
 sys.stdout.write(query)</string>
 				<key>scriptargtype</key>
@@ -850,9 +850,9 @@ sys.stdout.write(query)</string>
 				<key>script</key>
 				<string>import sys
 import json
-from lib.chache_manage import ChacheManage
+from lib.cache_manage import CacheManage
 
-row_checklist = ChacheManage.read()
+row_checklist = CacheManage.read()
 
 def option(work, condition, arg):
 	if condition == 0:
@@ -902,11 +902,11 @@ print(json.dumps({"items": options}))
 				<integer>68</integer>
 				<key>script</key>
 				<string>import sys
-from lib.chache_manage import ChacheManage
+from lib.cache_manage import CacheManage
 
 query = sys.argv[1]
 
-row_checklist = ChacheManage.read()
+row_checklist = CacheManage.read()
 
 selected_ind = int(query)
 selected_data = row_checklist.pop(selected_ind)
@@ -919,7 +919,7 @@ remaining_task = filter(lambda x: x[0] == '*', row_checklist)
 if len(remaining_task) == 0:
 	sys.stdout.write('1')
 else:
-	ChacheManage.write(row_checklist)
+	CacheManage.write(row_checklist)
 	sys.stdout.write(selected_data[1:])</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>

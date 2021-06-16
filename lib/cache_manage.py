@@ -1,6 +1,6 @@
 import os
 
-class ChacheManage:
+class CacheManage:
 
     @staticmethod
     def flash():
