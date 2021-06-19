@@ -468,7 +468,7 @@ sys.stdout.write(query)</string>
 				<key>keyword</key>
 				<string>flight</string>
 				<key>subtext</key>
-				<string>Taking careful</string>
+				<string>Be careful</string>
 				<key>text</key>
 				<string>Flight Checklists</string>
 				<key>withspace</key>
@@ -509,20 +509,25 @@ sys.stdout.write(query)</string>
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>import sys
+				<string># encoding: utf-8
+
+import sys
 import json
+
+checklists_option = {"title": "checklists", "arg": "txt", "subtitle": "チェックリストの開始"}
+template_option = {"title": "template", "arg": "template", "subtitle": "チェックリストの作成・編集"}
 
 if len(sys.argv) == 2:
 	options = {"items": [
-				{"title": "checklists", "arg": "txt"},
-				{"title": "template", "arg": "template"}
+				checklists_option,
+				template_option
 			]}
 else:
 	options = {"items": [
-				{"title": "continue", "arg": ""},
-				{"title": "checklists", "arg": "txt"},
-				{"title": "template", "arg": "template"},
-				{"title": "clean", "arg": "clean"}
+				{"title": "continue", "arg": "", "subtitle": "チェックリストの再開"},
+				checklists_option,
+				template_option,
+				{"title": "clean", "arg": "clean", "subtitle": "キャッシュの削除"}
 			]}
 
 print(json.dumps(options))
@@ -879,11 +884,13 @@ vim</string>
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>import json
+				<string># encoding: utf-8
+
+import json
 
 options = {"items": [
-			{"title": "new", "arg": "new"},
-			{"title": "edit", "arg": "txt"}
+			{"title": "new", "arg": "new", "subtitle": "チェックリストの作成"},
+			{"title": "edit", "arg": "txt", "subtitle": "チェックリストの編集"}
 		]}
 
 
