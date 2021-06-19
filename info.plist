@@ -19,6 +19,57 @@
 				<false/>
 			</dict>
 		</array>
+		<key>3FC32A4C-0ECF-4B79-8B68-213E31140EEA</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5E5C989D-F061-40F7-BCE1-9CF86A1B6D85</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>44DF1DDF-F6A7-4DCC-87EE-B9BB8C5EAE07</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>77385CFB-2630-40BC-96C4-C756C4B1D91E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>6EF9D588-6589-4F78-A1AF-E12313AF853A</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>C5A89759-A7D0-4BBB-B35C-FD7A3D985071</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>5E5C989D-F061-40F7-BCE1-9CF86A1B6D85</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>44DF1DDF-F6A7-4DCC-87EE-B9BB8C5EAE07</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>72658D0B-EB85-4F68-88E3-6E58A49C6B66</key>
 		<array>
 			<dict>
@@ -48,7 +99,7 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>77385CFB-2630-40BC-96C4-C756C4B1D91E</string>
+				<string>DC10FD29-1B0A-4D0D-A897-AAA5DDB06F78</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -173,6 +224,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>8BD4B0F8-592F-4ADD-9AA6-B558BB0B2BFE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>C5A89759-A7D0-4BBB-B35C-FD7A3D985071</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A3C89B7A-1B84-4133-B569-D81C82E6281A</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -365,9 +429,9 @@ sys.stdout.write(query)</string>
 						<key>matchmode</key>
 						<integer>0</integer>
 						<key>matchstring</key>
-						<string>make</string>
+						<string>template</string>
 						<key>outputlabel</key>
-						<string>make</string>
+						<string>template</string>
 						<key>uid</key>
 						<string>53F3A84F-3716-4BBC-B39B-9977EB3C7306</string>
 					</dict>
@@ -451,13 +515,13 @@ import json
 if len(sys.argv) == 2:
 	options = {"items": [
 				{"title": "checklists", "arg": "txt"},
-				{"title": "make", "arg": "make"}
+				{"title": "template", "arg": "template"}
 			]}
 else:
 	options = {"items": [
 				{"title": "continue", "arg": ""},
 				{"title": "checklists", "arg": "txt"},
-				{"title": "make", "arg": "make"},
+				{"title": "template", "arg": "template"},
 				{"title": "clean", "arg": "clean"}
 			]}
 
@@ -487,19 +551,19 @@ print(json.dumps(options))
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>script</key>
-				<string>mkdir ~/Documents/checklists
-
-cd ~/Documents/checklists
-
-vim</string>
+				<key>externaltriggerid</key>
+				<string>file_template</string>
+				<key>passinputasargument</key>
+				<true/>
+				<key>passvariables</key>
+				<true/>
+				<key>workflowbundleid</key>
+				<string>self</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.terminalcommand</string>
+			<string>alfred.workflow.output.callexternaltrigger</string>
 			<key>uid</key>
-			<string>77385CFB-2630-40BC-96C4-C756C4B1D91E</string>
+			<string>DC10FD29-1B0A-4D0D-A897-AAA5DDB06F78</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -752,6 +816,223 @@ else:
 			<string>alfred.workflow.output.callexternaltrigger</string>
 			<key>uid</key>
 			<string>DA6E5B44-215E-4B78-B60B-16330FD28390</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>mkdir ~/Documents/checklists
+
+cd ~/Documents/checklists
+
+vim</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.terminalcommand</string>
+			<key>uid</key>
+			<string>77385CFB-2630-40BC-96C4-C756C4B1D91E</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>triggerid</key>
+				<string>file_template</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.external</string>
+			<key>uid</key>
+			<string>3FC32A4C-0ECF-4B79-8B68-213E31140EEA</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>keyword</key>
+				<string>flight</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>import json
+
+options = {"items": [
+			{"title": "new", "arg": "new"},
+			{"title": "edit", "arg": "txt"}
+		]}
+
+
+print(json.dumps(options))
+
+</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string></string>
+				<key>type</key>
+				<integer>3</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>5E5C989D-F061-40F7-BCE1-9CF86A1B6D85</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{query}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>new</string>
+						<key>outputlabel</key>
+						<string>new</string>
+						<key>uid</key>
+						<string>6EF9D588-6589-4F78-A1AF-E12313AF853A</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>edit</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>44DF1DDF-F6A7-4DCC-87EE-B9BB8C5EAE07</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>anchorfields</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>daterange</key>
+				<integer>0</integer>
+				<key>fields</key>
+				<array>
+					<dict>
+						<key>field</key>
+						<string>kMDItemDisplayName</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>field</key>
+						<string>kMDItemAlternateNames</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>field</key>
+						<string>kMDItemFinderComment</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+				</array>
+				<key>includesystem</key>
+				<false/>
+				<key>limit</key>
+				<integer>0</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>scopes</key>
+				<array>
+					<string>~/Documents/checklists</string>
+				</array>
+				<key>sortmode</key>
+				<integer>0</integer>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string></string>
+				<key>types</key>
+				<array>
+					<string>public.plain-text</string>
+				</array>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.filefilter</string>
+			<key>uid</key>
+			<string>C5A89759-A7D0-4BBB-B35C-FD7A3D985071</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>vim {query}
+</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.terminalcommand</string>
+			<key>uid</key>
+			<string>A3C89B7A-1B84-4133-B569-D81C82E6281A</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -1032,7 +1313,7 @@ else:
 			<key>xpos</key>
 			<integer>810</integer>
 			<key>ypos</key>
-			<integer>600</integer>
+			<integer>810</integer>
 		</dict>
 		<key>07CD61AF-CFFC-4792-9E47-A2AEB5E1CDFF</key>
 		<dict>
@@ -1053,7 +1334,28 @@ else:
 			<key>xpos</key>
 			<integer>640</integer>
 			<key>ypos</key>
-			<integer>600</integer>
+			<integer>810</integer>
+		</dict>
+		<key>3FC32A4C-0ECF-4B79-8B68-213E31140EEA</key>
+		<dict>
+			<key>xpos</key>
+			<integer>10</integer>
+			<key>ypos</key>
+			<integer>520</integer>
+		</dict>
+		<key>44DF1DDF-F6A7-4DCC-87EE-B9BB8C5EAE07</key>
+		<dict>
+			<key>xpos</key>
+			<integer>345</integer>
+			<key>ypos</key>
+			<integer>540</integer>
+		</dict>
+		<key>5E5C989D-F061-40F7-BCE1-9CF86A1B6D85</key>
+		<dict>
+			<key>xpos</key>
+			<integer>170</integer>
+			<key>ypos</key>
+			<integer>520</integer>
 		</dict>
 		<key>72658D0B-EB85-4F68-88E3-6E58A49C6B66</key>
 		<dict>
@@ -1072,9 +1374,9 @@ else:
 		<key>77385CFB-2630-40BC-96C4-C756C4B1D91E</key>
 		<dict>
 			<key>xpos</key>
-			<integer>565</integer>
+			<integer>610</integer>
 			<key>ypos</key>
-			<integer>130</integer>
+			<integer>510</integer>
 		</dict>
 		<key>7E054C6B-8EB3-4A49-BBAA-3B234B80A393</key>
 		<dict>
@@ -1095,14 +1397,14 @@ else:
 			<key>xpos</key>
 			<integer>515</integer>
 			<key>ypos</key>
-			<integer>635</integer>
+			<integer>845</integer>
 		</dict>
 		<key>8BD4B0F8-592F-4ADD-9AA6-B558BB0B2BFE</key>
 		<dict>
 			<key>xpos</key>
 			<integer>345</integer>
 			<key>ypos</key>
-			<integer>615</integer>
+			<integer>825</integer>
 		</dict>
 		<key>8F89B1BA-73F2-4BB4-BC68-2E680273C8EC</key>
 		<dict>
@@ -1116,14 +1418,21 @@ else:
 			<key>xpos</key>
 			<integer>675</integer>
 			<key>ypos</key>
-			<integer>835</integer>
+			<integer>1045</integer>
 		</dict>
 		<key>9872827B-D7BE-4F72-A3B3-AAA100C6DD59</key>
 		<dict>
 			<key>xpos</key>
 			<integer>820</integer>
 			<key>ypos</key>
-			<integer>730</integer>
+			<integer>940</integer>
+		</dict>
+		<key>A3C89B7A-1B84-4133-B569-D81C82E6281A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>610</integer>
+			<key>ypos</key>
+			<integer>640</integer>
 		</dict>
 		<key>B2D3D70B-BE8A-46A2-8CDC-24CA5FF5BFEB</key>
 		<dict>
@@ -1137,7 +1446,14 @@ else:
 			<key>xpos</key>
 			<integer>170</integer>
 			<key>ypos</key>
-			<integer>615</integer>
+			<integer>825</integer>
+		</dict>
+		<key>C5A89759-A7D0-4BBB-B35C-FD7A3D985071</key>
+		<dict>
+			<key>xpos</key>
+			<integer>430</integer>
+			<key>ypos</key>
+			<integer>640</integer>
 		</dict>
 		<key>C63D95EE-E8E7-4E9D-976D-8399791E739D</key>
 		<dict>
@@ -1151,14 +1467,14 @@ else:
 			<key>xpos</key>
 			<integer>10</integer>
 			<key>ypos</key>
-			<integer>615</integer>
+			<integer>825</integer>
 		</dict>
 		<key>C9D89895-E41F-4812-888F-02807D7BCAB9</key>
 		<dict>
 			<key>xpos</key>
 			<integer>680</integer>
 			<key>ypos</key>
-			<integer>760</integer>
+			<integer>970</integer>
 		</dict>
 		<key>D73764E0-2780-4C72-96E5-49B4377DCC98</key>
 		<dict>
@@ -1173,6 +1489,13 @@ else:
 			<integer>925</integer>
 			<key>ypos</key>
 			<integer>490</integer>
+		</dict>
+		<key>DC10FD29-1B0A-4D0D-A897-AAA5DDB06F78</key>
+		<dict>
+			<key>xpos</key>
+			<integer>565</integer>
+			<key>ypos</key>
+			<integer>130</integer>
 		</dict>
 		<key>E0C7EC8F-E004-42F7-B284-BC28874B1B91</key>
 		<dict>
